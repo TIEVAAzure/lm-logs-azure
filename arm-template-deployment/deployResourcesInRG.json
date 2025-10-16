@@ -43,13 +43,13 @@
     }
   },
   "variables": {
-    "logsFunctionAppName": "testlogicfunctionapp001",
-    "eventhubNamespace": "testeventhubnamespace001",
-    "storage": "teststorageaccount001",
+    "logsFunctionAppName": "tievadevphtestlogicfunctionapp001",
+    "eventhubNamespace": "tievadevphtesteventhubnamespace001",
+    "storage": "tievadevphteststorageaccount001",
     "lmAppStorageAccounts": "[if(greater(length(variables('storage')) , 24), substring(variables('storage'), sub(length(variables('storage')) , 24), 24) , variables('storage'))]",
     "eventhubLogsName": "log-hub",
     "ConsumergroupsLogsName": "LMConsumerGroup",
-    "functionServerfarms": "testappserviceplan001",
+    "functionServerfarms": "tievadevphtestappserviceplan001",
     "listener": "listener",
     "sender": "sender",
     "lm_auth": "[concat('{ \"LM_ACCESS_ID\" : \"',parameters('LM_Access_Id'),'\", \"LM_ACCESS_KEY\" : \"', parameters('LM_Access_Key'), '\", \"LM_BEARER_TOKEN\" : \"', parameters('LM_Bearer_Token'), '\" }')]",
