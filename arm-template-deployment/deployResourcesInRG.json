@@ -5,6 +5,9 @@
     "LM_Company_Name": {
       "type": "string"
     },
+    "Company_Name": {
+    "type": "string"
+    },
     "LM_Access_Id": {
       "type": "string"
     },
@@ -43,9 +46,9 @@
     }
   },
   "variables": {
-    "logsFunctionAppName": "lmlogsmoorhouseuksouth1",
-    "eventhubNamespace": "lmlogsmoorhouseuksouth1",
-    "storage": "lmlogsmoorhouseuksouth1",
+    "logsFunctionAppName": "[concat('lm-logs','-',parameters('Company_Name'), '-', replace(parameters('Azure_Region'),' ',''))]",
+    "eventhubNamespace": "[concat('lm-logs','-',parameters('Company_Name'), '-', replace(parameters('Azure_Region'),' ',''))]",
+    "storage": "[toLower(concat(parameters('Company_Name'), replace(parameters('Azure_Region'),' ','')))]",
     "lmAppStorageAccounts": "[if(greater(length(variables('storage')) , 24), substring(variables('storage'), sub(length(variables('storage')) , 24), 24) , variables('storage'))]",
     "eventhubLogsName": "log-hub",
     "ConsumergroupsLogsName": "LMConsumerGroup",
@@ -156,7 +159,7 @@
             },
             {
               "name": "WEBSITE_RUN_FROM_PACKAGE",
-              "value": "[concat('https://github.com/logicmonitor/lm-logs-azure/raw/refs/heads/',parameters('sourceCodeBranch'),'/package/lm-logs-azure.zip')]"
+              "value": "[concat('https://github.com/logicmonitor/lm-logs-azure/raw/',parameters('sourceCodeBranch'),'/package/lm-logs-azure.zip')]"
             },
             {
               "name": "AzureWebJobsStorage",
