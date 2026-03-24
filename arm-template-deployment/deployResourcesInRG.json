@@ -5,6 +5,9 @@
     "LM_Company_Name": {
       "type": "string"
     },
+    "Company_Name": {
+    "type": "string"
+    },
     "LM_Access_Id": {
       "type": "string"
     },
